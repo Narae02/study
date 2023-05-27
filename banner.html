@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클래스 조작 메서드를 활용한 콘트롤 버튼 구현하기</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <style>
+    *{margin: 0;padding: 0;
+    }
+    body{
+      width: 100%;
+      background-color: beige;
+    }
+    article{
+      width: 315px;
+      text-align: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    h3{padding: 30px 0;}
+    .wrap{
+      width: 315px;
+      display: flex;
+			/* position: relative; 해야 이미지가 넘어감 */
+			position: relative;
+      margin: 0 auto;
+    }
+    .wrap img{width: 315px;height: 210px;}
+
+    .btn{
+      list-style: none;
+      width: 315px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .btn li{
+      width: 20px;height: 20px;
+      background-color: rgb(149, 178, 103);
+      margin: 30px 15px;
+      text-align: center;
+      transition: 0.5s;
+      border-radius: 50%;
+    }
+    .on{
+      width: 70px !important;
+      background: rgb(83, 108, 43) !important;
+      border-radius: 150px !important;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+			//콘트롤버튼 클릭시 0,1나오게 하기
+      let btn=$('.btn li');
+      btn.click(function(){
+        let n=$(this).index();
+        console.log(n);
+
+        //공식대입
+				n=-($('.wrap img').width()*n); //-(img width값*n)
+        console.log(n); 
+				$('.wrap').animate({'left':n},500);
+
+        $('.btn li').removeClass('on'); //서식을 모두제거
+				$(this).addClass('on');//클릭한 li태그에서만 서식 적용
+
+      });
+
+    });
+  </script>
+</head>
+<body>
+  
+<article>
+<h3>이미지 5장 슬라이드를 만들어봐요!</h3>
+<div class="wrap">
+  <img src="https://images.unsplash.com/photo-1596831534010-5a5d1e9f2a4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDQ5fEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=1400&q=60" alt="1번 이미지">
+  <img src="https://images.unsplash.com/photo-1647765010264-e7a5bf0e2b58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="2번 이미지">
+  <img src="https://images.unsplash.com/photo-1682936366238-b0a5bde0155b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM2fEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=1400&q=60" alt="3번 이미지">
+  <img src="https://images.unsplash.com/photo-1679837827575-67d20fe11670?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDYxfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=1400&q=60" alt="4번 이미지">
+  <img src="https://images.unsplash.com/photo-1675772356887-96b374c0c9c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDUzfEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=1400&q=60" alt="5번 이미지">
+  </div>
+  <ul class="btn">
+    <li class="on">&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+    <li>&nbsp;</li>
+  </ul>
+</article>
+</body>
+</html>
