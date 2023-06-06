@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>scrollTop 원하는 위치만큼 고정시키기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      html,body{
+        height:100%;
+      }
+      a{
+        text-decoration: none;
+        color:#000;
+      }
+      body>div{
+      width: 1000px;
+      margin: 0 auto;
+      text-align: right;
+      position: relative;
+      }
+      h2{
+      width: 200px;
+      position: absolute;
+      /*! left: 20px; */
+      top: 100px;
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      padding: 15px 0;
+      text-transform: uppercase;
+      }
+      .h900{
+        height: 1400px;
+        width: 80%;
+        display: inline-block;
+        border: 2px solid;
+        box-sizing: border-box;
+      }
+      .a{
+        background-color: red;
+      }
+      #about h2{
+        background-color: red;
+      }
+      .b{
+        background-color: green;
+      }
+      #skill h2{
+        background-color: green;
+      }
+      .c{
+        background-color: blue;
+      }
+      #portfolio h2{
+        background-color: blue;
+      }
+      .d{
+        background-color: gray;
+      }
+      #contact h2{
+        background-color: gray;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        var scrollT=$(window).scrollTop();//윈도우스크롤탑값을 변수처리
+        var skillTop=$("#skill").offset().top;
+            skillTop=skillTop-$(window).height();
+        var aboutT=skillTop+100;
+        $(window).scroll(function(){
+
+          scrollT=$(window).scrollTop(); //스콜할때마다 스크롤값을 저장
+          $("#about h2").css({"position":"fixed"});//스크롤시작시 바로 고정
+          if(scrollT>=skillTop) $("#about h2").css({"position":"absolute","top":aboutT});
+          if(scrollT<skillTop) $("#about h2").css({"position":"fixed","top":"100px"});
+
+        });
+      });
+    </script>
+  </head>
+  <body>
+  <div id="about">
+    <h2>about</h2>
+    <div class="h900 a " style="text-align:left;">
+      1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16
+    </div>
+  </div>
+  <div id="skill">
+    <h2>skill</h2>
+    <div class="h900 b"></div>
+  </div>
+  <div id="portfolio">
+    <h2>portfolio</h2>
+    <div class="h900 c"></div>
+  </div>
+  <div id="contact">
+    <h2>contact</h2>
+    <div class="h900 d"></div>
+  </div>
+  </body>
+</html>
