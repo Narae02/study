@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLide Up효과로 애니메이션 만들기</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-state-machine/3.1.0/state-machine.min.js"></script>
+
+  <style>
+
+* {
+  @include box-sizing(border-box); 
+}
+
+section {
+  background: #90a39d;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.module {
+  width: 48%;
+  min-height: 200px;
+  background: white;
+  position: relative;
+  float: left;
+  padding: 20px;
+  margin-right: 4%;
+  margin-bottom: 4%;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+  box-shadow: 0 1px 3px rgba(black, 0.2);
+  /*transform: translateY(100px);*/
+  transform: translate3d(0, 100px, 0);
+  /* added translateY position to module to prevent the module loading at 0 then jumping down before sliding up (on mobile) */
+  /* replaced translateY with translate3d for iOS hardware-acceleration*/
+}
+
+body {
+  background: #abc3bb;
+  padding: 30px;
+}
+ 
+.come-in {
+  /*transform: translateY(100px);*/
+  transform: translate3d(0, 100px, 0);
+  animation: come-in 0.8s ease forwards;
+}
+.come-in:nth-child(odd) {
+  animation-duration: 0.6s;
+}
+.already-visible {
+  /*transform: translateY(0);*/
+  transform: translate3d(0, 0, 0);
+  animation: none;
+}
+
+@keyframes come-in {
+  to { transform: translate3d(0, 0, 0); }
+}  </style>
+
+  <script>
+function($) {
+
+$.fn.visible = function(partial) {
+
+  var $t = $(this),
+    $w = $(window),
+    viewTop = $w.scrollTop(),
+    viewBottom = viewTop + $w.height(),
+    _top = $t.offset().top,
+    _bottom = _top + $t.height(),
+    compareTop = partial === true ? _bottom : _top,
+    compareBottom = partial === true ? _top : _bottom;
+
+  return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+};
+
+};
+
+var win = $(window);
+var allMods = $(".module");
+
+allMods.each(function(i, el) {
+var el = $(el);
+if (el.visible(true)) {
+  el.addClass("already-visible");
+}
+});
+
+win.scroll(function(event) {
+allMods.each(function(i, el) {
+  var el = $(el);
+  if (el.visible(true)) {
+    el.addClass("come-in");
+  }
+});
+});  </script>
+</head>
+<body>
+  <section>
+  
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div> 
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+    <div class="module"></div>
+  
+  </section>
+</body>
+</html>
+
+

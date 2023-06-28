@@ -64,10 +64,13 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
-        var scrollT=$(window).scrollTop();//윈도우스크롤탑값을 변수처리
-        var skillTop=$("#skill").offset().top;
-            skillTop=skillTop-$(window).height();
-        var aboutT=skillTop+100;
+        let scrollT=$(window).scrollTop();//윈도우스크롤탑값을 변수처리/ scrollTop():선택한 요소의 세로 스크롤 값을 설정하거나 반환
+        
+        let skillTop=$("#skill").offset().top; //offset():선택한 요소의 위치값의 top, left 형식을 반환
+            skillTop=skillTop-$(window).height(); //height():요소의 콘텐츠 높이를 반환
+            
+            // console.log(skillTop); 
+        let aboutT=skillTop+100;
         $(window).scroll(function(){
 
           scrollT=$(window).scrollTop(); //스콜할때마다 스크롤값을 저장
@@ -77,6 +80,51 @@
 
         });
       });
+
+
+
+
+
+
+
+      //스크롤 - 핫이슈 이동.멉춤.이동
+      var scrollT=$(window).scrollTop();
+        var hotissueT=$("#hotissue").offset().top;
+        var colorT=$("#color").offset().top;
+            colorT=colorT-$(window).height();
+        var hotsideT=colorT-hotissueT+490;
+
+        $(window).scroll(function(){
+          if($(window).width()>768){
+            scrollT=$(window).scrollTop();
+
+            if(scrollT>=hotissueT){
+              $("#hotissue .hotside").css({"position":"fixed"});
+            }
+            if(scrollT>=colorT){
+              if($(winddow).width()>1200){
+                $("#hotissue .hotside").css({"position":"absolute","top":hotsideT});
+              }else{
+                hotsideT=colorT-hotissueT+230;
+                $("#hotissue .hotside").css({"position":"absolute","top":hotsideT});
+              }
+              
+            }
+            if(scrollT<colorT && scrollT>=hotissueT){
+              if($(winddow).width()>1200){
+                $("#hotissue .hotside").css({"position":"fixed","top":"490px"});
+              }else{
+                $("#hotissue .hotside").css({"position":"fixed","top":"230px"});
+              }
+            
+            }
+            if(scrollT<hotissueT){
+              $("#hotissue .hotside").css({"position":"absolute"});
+            }
+          } 
+        });
+
+        
     </script>
   </head>
   <body>
@@ -88,15 +136,18 @@
   </div>
   <div id="skill">
     <h2>skill</h2>
-    <div class="h900 b"></div>
+    <div class="h900 b" style="text-align:left;">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16
+    </div>
   </div>
   <div id="portfolio">
     <h2>portfolio</h2>
-    <div class="h900 c"></div>
+    <div class="h900 c" style="text-align:left;">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16
+    </div>
   </div>
   <div id="contact">
     <h2>contact</h2>
-    <div class="h900 d"></div>
+    <div class="h900 d" style="text-align:left;">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16
+    </div>
   </div>
   </body>
 </html>

@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <!-- 반응형 하기위해서 필요함 -->
+    <title>삼화페인트-코딩작품</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/ham.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/circleRotate.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/response.css">
+    <script  src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // 상단영역 대메뉴-서브메뉴처리
+        $("header nav .gnb").hover(
+          function(){
+            $("header h1").addClass("changebg");
+            $("header nav").addClass("over");
+          },
+          function(){
+            $("header h1").removeClass("changebg");
+            $("header nav").removeClass("over");
+          }
+        );
+       
+        //비즈니스 위치 조정 business
+        var ww=$(window).width();
+        var busiW=$("#business .w1200").width();
+        var busiW2;
+        busiW2=(ww-busiW)/2;
+       
+        // business ani
+        $("#business ul").wrap("<div class='busiAni'></div>"); //div생성
+        $(".busiAni").wrap("<div class='busiAniW'></div>");//div생성
+        $("#business .busiAni").clone().appendTo(".busiAniW");//복제2
+        $("#business .busiAni:nth-child(1)").clone().appendTo(".busiAniW");//복제3
+
+        busiW2=(ww-busiW)/2+$("#business .busiAniW .busiAni:nth-child(3)").innerWidth()/2;
+
+        $("#business .busiAniW").css({"width":"calc("+busiW+"px + "+busiW2+"px)"});
+
+        $(window).resize(function(){  //윈도우 창크기조절시 항목크기 자동갱신
+          ww=$(window).width();
+          busiW=$("#business .w1200").width();
+          busiW2=(ww-busiW)/2;
+          busiW2=(ww-busiW)/2+$("#business .busiAniW .busiAni:nth-child(3)").innerWidth()/2;
+          $("#business .busiAniW").css({"width":"calc("+busiW+"px + "+busiW2+"px)"});
+        });
+          // console.log("창너비:"+ww+", w1200너비:"+busiW+", 한쪽여백값:"+(ww-busiW)/2+", 3번째li너비값:"+$("#business ul li:nth-child(3)").innerWidth()/2);
+
+    /*
+      // 비즈니스 좌우 슬라이드버튼 1
+        var busiN=0;
+        var busiN2;
+        $("#business .control button").click(function(){
+
+          if(busiN<2 && busiN>=1){ //중간단계이미지일때 애니
+            if($(this).hasClass("next")){ //클릭버튼에 따라 증가값 설정
+              busiN2=1;
+            }else{
+              busiN2=-1;
+            }
+            busiN += busiN2;
+            $("#business .busiAni ul").stop().animate({"left":-100*busiN+"%"},1000);
+            // alert("조건1");
+          }
+
+          if(busiN==2){ //마지막 이미지일때 애니
+            if($(this).hasClass("next")){
+              busiN2=0;
+            }else{
+              busiN2=-1;
+            }
+            busiN += busiN2;
+            $("#business .busiAni ul").stop().animate({"left":-100*busiN+"%"},1000);
+            // alert("조건2");
+          }
+          if(busiN<1){ //처음 이미지일때 애니
+            if($(this).hasClass("next")){
+              busiN2=1;
+            }else{
+              busiN2=0;
+            }
+            busiN += busiN2;
+            $("#business .busiAni ul").stop().animate({"left":-100*busiN+"%"},1000);
+            // alert("조건3");
+          }
+
+          // 갯수카운터
+          $(".control .count").text(busiN+1+"/"+total);
+
+
+        });
+        // 갯수카운터
+        var total=$("#business .busiAni:eq(0) ul li").length;
+        $(".control button.next").before("<p class='count' style='display:inline-block'></p>");
+        $(".control .count").text(busiN+1+"/"+total);
+
+      */
+      // 비즈니스 좌우 슬라이드버튼 2 연속
+        var busiN=1;
+        var busiN2;
+        var countN=1;
+        $("#business .busiAni:eq(1) ul").children("li:eq(0)").appendTo("#business .busiAni:eq(1) ul"); //두번째 항목보이게
+        $("#business .busiAni:eq(2) ul").children("li:eq(0),li:eq(1)").appendTo("#business .busiAni:eq(2) ul"); //세번째 항목보이게
+
+        $("#business .control button").click(function(){
+
+          if($(this).hasClass("next")){ //클릭버튼에 따라 증가값 설정
+            busiN2=1;
+            countN++;
+            if(countN==4){
+              countN=1;
+            }else{
+              countN %= 4;
+            }
+          }else{
+            busiN2=-1;
+            countN--;
+            if(countN==0){
+              countN=3;
+            }else{
+              countN %= 4;
+            }
+          }
+         busiN = busiN2;
+          if(busiN2==1){
+            $("#business .busiAni ul").stop().animate({"left":-100*busiN+"%"},1000,function(){
+              $(this).children("li:eq(0)").appendTo(this);
+              $(this).css("left","0px");
+            });
+          }else{
+            $("#business .busiAni ul").stop().animate({"left":100*busiN+"%"},0,function(){
+              $(this).children("li:eq(2)").prependTo(this);
+              $(this).stop().animate({"left":0*busiN+"%"},500);
+            });
+
+            // $("#business .busiAni:eq(0) ul").css("flex-direction","row-reverse");
+            // $("#business .busiAni:eq(0) ul").css("left","-200%");
+            // $("#business .busiAni:eq(0) ul").stop().animate({"left":100*busiN+"%"},1000,function(){
+            //  $(this).children("li:eq(0)").appendTo(this); //첫번째 있는것을 마지막으로 옮기는 것
+            //  $("#business .busiAni:eq(0) ul").css("left","-200%");
+            // });
+          }
+
+          // 갯수카운터
+          $(".control .count").text(countN+"/"+total);
+
+        });
+
+
+        // 갯수카운터
+        var total=$("#business .busiAni:eq(0) ul li").length;
+        $(".control button.next").before("<p class='count' style='display:inline-block'></p>");
+        $(".control .count").text(busiN+"/"+total);
+
+        // 비즈니스 너비 갱신 창사이즈를 조절할때
+        // $(window).resize(function(){
+        //   $("#business .busiAniW .busiAni ul").css("width","300%");
+        //   $("#business .busiAniW .busiAni ul li").css("width","calc(100% / 3)");
+        // });
+
+        // aside 이모티콘
+        $("aside ul li").hover(
+          function(){
+            $(this).siblings().css("opacity",0.4);
+          },
+          function(){
+            $(this).siblings().css("opacity",1);
+          }
+        );
+
+        // aside 슬라이드
+        $("aside h2").click(function(){
+          $("aside").removeClass("asideMoveBack");
+          $("aside").addClass("asideMove");
+        });
+        $("aside button").click(function(){
+          $("aside").addClass("asideMoveBack");
+        });
+
+        //aside의 아이콘클릭-textarea배치
+        $("aside ul li a").click(function(){
+          $("aside form").remove();
+          $("aside ul").after("<form><textarea></textarea><button type='submit'>send</button></form>");
+          $("aside textarea").keydown(function(){
+            $("aside form button").css("background-color","red");
+          });
+
+          $("aside textarea").keyup(function(){
+            if($("textarea").val()==""){
+              $("aside form button").css("background-color","transparent");
+            }
+          });
+
+          return false;
+        });
+
+        // textarea안에 텍스트가 입력되는 submit버튼에 색상변경
+       
+
+        //스크롤 - 핫이슈 이동.멉춤.이동
+        var scrollT=$(window).scrollTop();
+        var hotissueT=$("#hotissue").offset().top; //해당섹션
+        var colorT=$("#color").offset().top; //다음섹션
+            colorT=colorT-$(window).height();
+        var hotsideT=colorT-hotissueT+490;
+
+        $(window).scroll(function(){
+          if($(window).width()>768){
+            scrollT=$(window).scrollTop();
+
+            if(scrollT>=hotissueT){
+              $("#hotissue .hotside").css({"position":"fixed"});
+            }
+            if(scrollT>=colorT){
+              if($(winddow).width()>1200){
+                $("#hotissue .hotside").css({"position":"absolute","top":hotsideT});
+              }else{
+                hotsideT=colorT-hotissueT+230;
+                $("#hotissue .hotside").css({"position":"absolute","top":hotsideT});
+              }
+              
+            }
+            if(scrollT<colorT && scrollT>=hotissueT){
+              if($(winddow).width()>1200){
+                $("#hotissue .hotside").css({"position":"fixed","top":"490px"});
+              }else{
+                $("#hotissue .hotside").css({"position":"fixed","top":"230px"});
+              }
+            
+            }
+            if(scrollT<hotissueT){
+              $("#hotissue .hotside").css({"position":"absolute"});
+            }
+          } 
+        });
+
+        // color 줌버튼 클릭
+        var colorBg=["#005171","#7e9aaa","#98b2c6","#bdc8d2"];  //컬러값 배열에 저장
+        var colorN; //배열의 index저장
+        // alert(colorBg.length); // length 배열요소의 갯수 
+        $("#color .zoom").click(function(){
+
+          $("#color").append("<div class='colorPopup'></div>");  //div저장
+          $(".colorPopup").append("<button class='close' type='button'></button>");
+         
+          // 하단 항목 복제,넣기(왼쪽)
+          colorN=$(this).parent().parent().index();
+          $("#color li:eq("+colorN+") h3,#color li:eq("+colorN+") p").clone().appendTo(".colorPopup");
+          $(".colorPopup h3").wrap("<div class='bottom_left'></div>");
+          $(".colorPopup p").appendTo(".colorPopup .bottom_left");
+          // 하단 항목 넣기(오른쪽)
+          $(".colorPopup").append("<div class='bottom_right'></div>");
+          $(".bottom_right").append("<button class='code' type='button'></button><button class='purchase' type='button'></button>");
+          // $("<button class='code' type='button'></button>,<button class='purchase' type='button'></button>").wrap("<div class='bottom_right'></div>");
+
+
+
+          $("button.close").click(function(){  //창닫기
+            $(".colorPopup").remove();
+          });  
+
+          // 팝업창 컬러 (배열)지정하기
+          $(".colorPopup").css("background-color",colorBg[colorN]);
+        });
+
+        // 하단 패밀리사이트
+        $(".select ul").hide();
+        $(".select>a").click(function(){
+          $(this).next("ul").fadeToggle(300);
+          return false;
+        });
+
+      });
+
+    </script>
+    <script type="text/javascript" src="js/popupmenu.js"></script>
+    <script type="text/javascript" src="js/titleFade.js"></script>
+    <script type="text/javascript" src="js/busiSlide.js"></script>
+  </head>
+  <body class="bodybg">
+    <div class="www">
+      <!-- 상단영역 -->
+      <header>
+        <div id="top">
+          <h1><a href="">삼화페인트</a></h1>
+          <nav>
+            <ul class="gnb">
+              <li>
+                <h2>Products</h2>
+                <ul class="hide">
+                  <li><a href="">제품소개</a></li>
+                  <li><a href="">자료검색</a></li>
+                  <li><a href="">페인팅 가이드</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2>Color</h2>
+                <ul class="hide">
+                  <li><a href="">컬러검색</a></li>
+                  <li><a href="">건축컬러디자인</a></li>
+                  <li><a href="">컬러디자인센터</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2>Culture</h2>
+                <ul class="hide">
+                  <li><a href="">#Live</a></li>
+                  <li><a href="">뉴스</a></li>
+                  <li><a href="">사회공헌</a></li>
+                  <li><a href="">케미 X 케미</a></li>
+                  <li><a href="">함께해요</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2>Company</h2>
+                <ul class="hide">
+                  <li><a href="">회사소개</a></li>
+                  <li><a href="">히스토리</a></li>
+                  <li><a href="">책임경영</a></li>
+                  <li><a href="">인재채용</a></li>
+                  <li><a href="">사업장</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2>IR</h2>
+                <ul class="hide">
+                  <li><a href="">투자정보</a></li>
+                  <li><a href="">경영정보</a></li>
+                  <li><a href="">재무정보</a></li>
+                  <li><a href="">IR 미팅 신청</a></li>
+                </ul>
+              </li>
+              <li>
+                <h2>Customer</h2>
+                <ul class="hide">
+                  <li><a href="">대리점찾기</a></li>
+                  <li><a href="">대리점스토리</a></li>
+                  <li><a href="">분석시스템</a></li>
+                  <li><a href="">고객상담</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="enb">
+              <li><a href="">인재채용</a></li>
+              <li><a href="">대리점 웹 주문</a></li>
+              <li>
+                <a href="">KOR</a>
+                <span>
+                  <a href="">ENG</a>
+                  <a href="">CHN</a>
+                </span>
+              </li>
+              <li><a href="">검색하기</a></li>
+              <li class="ham"><a href="">사이트맵</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- 타이틀영역 -->
+      <div id="title">
+        <div class="wrap">
+          <ul class="fade">
+            <li>
+              <h2>Andy Warhol<span class="block"></span>
+                Exhibition</h2>
+              <h3>THE HYUNDAI SEOUL<span class="block"></span>
+                안심닥터 시공 사례 </h3>
+              <a href="">자세히 보기</a>
+            </li>
+            <li class="hide">
+              <h2>삼화니까 안심이다</h2>
+              <a href="">자세히 보기</a>
+            </li>
+            <li class="hide">
+              <h2>All New iLux</h2>
+              <h3>생활방수, 이지클리닝 기능을 더한<span class="block"></span>
+                벽면/가구용 페인트</h3>
+              <a href="" >자세히 보기</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 내용영역 -->
+      <main>
+        <section id="search">
+          <div class="w1200">
+          <h2>무엇을 찾으시나요?
+            <span class="block">제품, 컬러, 대리점을 검색해보세요 </span>
+          </h2>
+          <fieldset><label for="" class="hide">검색</label><input type="text" placeholder="제품, 컬러, 대리점을 검색해보세요"></fieldset>
+          <h3>추천 검색어</h3>
+          <span>
+            <a href="">#안심닥터 </a>
+            <a href="">#그린방수마스터</a>
+            <a href="">#아이럭스</a>
+            <a href="">#아이생각</a>
+          </span>
+         </div>
+        </section>
+        <section id="hotissue">
+          <div class="w1200">
+            <h2>Hot Issue</h2>
+            <p>트렌드부터 다양한 이슈 및 SNS,<span class="block">삼화페인트의 모든 소식들을 만나보세요. </span></p>
+            <div class="hotcontents">
+              <ul>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s1.jpg" alt=""></figure>
+                    <h3>더현대 서울 앤디워홀 전시 시공</h3>
+                    <p>삼화페인트 대표 친환경페인트 아이생각 수성내부프로와 항바이러스 페인트 안심닥터로 시공된 안심공간을 만나보세요</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s2.jpg" alt=""></figure>
+                    <h3>아고라이팅X삼화페인트</h3>
+                    <p>새로운 빛을 만나다, 실내인테리어의 뉴 웨이브
+                      삼화페인트X아고라이팅 콜라보 in 서울리빙디자인페어</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s3.png" alt=""></figure>
+                    <h3>EP.01 페인트 오픈하기</h3>
+                    <p>페인트 오픈방법부터 V컷 페인팅이라는 꿀팁까지!
+                      셀프페인팅의 첫 발걸음 시작해볼까요?</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s4.png" alt=""></figure>
+                    <h3>투톤라이브 ep3. 릴보이 <span class="block"></span>
+                      Freak & FRIENDS </h3>
+                    <p>[Samhwa X lIlBOI] 투톤라이브 3월의 주인공 릴보이, 시고도 달콤한 풋사과같은 삶에, 꽃길이 가득이길 바라는 꿈을 담은 이달의 컬러 풋사과연두색🍏 X 푸른꿈색📘</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s5.jpg" alt=""></figure>
+                    <h3>항바이러스 페인트 ‘안심닥터’ 추천</h3>
+                    <p>항바이러스 원료 함유, 바이러스 99.9% 사멸…1월5일 대리점 출시 CGV 강남, 인천시청, 해썹인증 공장, 어린이 이용시설 등 적용 완료</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s6.jpg" alt=""></figure>
+                    <h3>생활방수, 이지클리닝 기능을 더한 올 뉴 아이럭스</h3>
+                    <p>실내 벽면/벽지용, 방문/가구용, 실내외 겸영 고채도 하이크로마 3종</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <figure><img src="img/s7.jpg" alt=""></figure>
+                    <h3>반려동물인증 받은 펫 러브 컬러와 펫테리어 추천</h3>
+                    <p>모든 집사들의 가장 큰 고민. 반려견과 반려묘가 머물기 좋은
+                      최상의 공간 만드는 방법</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="hotside">
+              <h3>2021 <span class="block"> Spring(75th<span class="block"> Anniversary)</span></span> </h3>
+                <a href="">PDF 보기</a>
+                <a href="">사보 전체보기</a>
+            </div>
+          </div>
+        </section>
+        <section id="color">
+          <div class="w1200">
+            <h2>Color Inspiration</h2>
+            <p>집안 인테리어를 cool하게 만들어 줄<span class="block">블루톤 컬러로 인테리어에 변화를 주세요</span></p>
+            <ul>
+              <li>
+                <h3>Teal Blue</h3>
+                <p>SH S 5040-B (0153D)</p>
+                <span>
+                  <button class="copy">칼라복사하기</button>
+                  <button class="zoom">크게보기</button>
+                </span>
+              </li>
+              <li>
+                <h3>Provence Blue</h3>
+                <p>SH S 3020-B (0088D)</p>
+                <span>
+                  <button class="copy">칼라복사하기</button>
+                  <button class="zoom">크게보기</button>
+                </span>
+              </li>
+              <li>
+                <h3>Gray Blue</h3>
+                <p>SH S 2020-R90B (0087C)</p>
+                <span>
+                  <button class="copy">칼라복사하기</button>
+                  <button class="zoom">크게보기</button>
+                </span>
+              </li>
+              <li>
+                <h3>Winter Sky</h3>
+                <p>SH S 1510-R90B (0087B)</p>
+                <span>
+                  <button class="copy">칼라복사하기</button>
+                  <button class="zoom">크게보기</button>
+                </span>
+              </li>
+            </ul>
+            <span>
+              <a href="" class="ncscolor">Samhwa-NCSColor</a>
+              <a href="" class="store">Find a Store</a>
+            </span>
+          </div>
+        </section>
+        <section id="business">
+          <div class="w1200">
+            <h2>Samhwa<span class="block"> Business Area</span></h2>
+            <p>친환경에 바탕을 둔, 글로벌 경쟁력을 갖춘<span class="block">종합도료기업 삼화페인트</span></p>
+            <ul>
+              <li class="a">
+                <h3>건축용</h3>
+                <p>70년 전통의 대한민국 No.1 건축용 페인트</p>
+              </li>
+              <li class="b">
+                <h3>방수/바닥용</h3>
+                <p>옥상과 지하주차장, 운동장 바닥까지 견고한 품질의<br>방수 바닥용 페인트</p>
+              </li>
+              <li class="c">
+                <h3>내화/방염</h3>
+                <p>강력한 내화성능과 재해 방지를 위한 내화/방염 페인트</p>
+              </li>
+            </ul>
+            <span class="control">
+              <button class="prev">이전</button>
+              <button class="next">다음</button>
+            </span>
+          </div>
+        </section>
+        <!-- 검색 -->
+        <section id="search2">
+          <div class="w1200">
+            <h2 class="hide">검색</h2>
+            <fieldset><label for="">제품,컬러,대리점 검색</label><input type="text" placeholder="제품,컬러,대리점 검색"></fieldset>
+            <h3>추천검색어</h3>
+            <span>
+              <a href="">#안심닥터</a>
+              <a href="">#그린방수마스터</a>
+              <a href="">#아이럭스</a>
+              <a href="">#아이생각</a>
+            </span>
+          </div>
+        </section>
+      </main>
+      <!-- aside 영역 -->
+      <aside>
+        <h2>facebook</h2>
+        <p>페이지북에 대한 당신의 호감도는 어느정도인가요?</p>
+        <ul>
+          <li>
+            <a href="">
+              <span class="material-icons">sentiment_very_satisfied</span>
+              <span>매우나쁨</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="material-icons">emoji_emotions</span>
+              <span>나쁨</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="material-icons">sentiment_neutral</span>
+              <span>보통</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="material-icons">sentiment_dissatisfied</span>
+              <span>좋음</span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span class="material-icons">sentiment_very_dissatisfied</span>
+              <span>매우좋음</span>
+            </a>
+          </li>
+        </ul>
+        <p>질문과답변은 여기에 남겨주세요</p>
+        <button>닫기</button>
+      </aside>
+      <!-- 하단영역 -->
+      <footer>
+        <div class="fnav">
+          <ul class="sns">
+            <li><a href="">인스타그램</a></li>
+            <li><a href="">유투브</a></li>
+            <li><a href="">네이버블로그</a></li>
+          </ul>
+          <p>Technical Service Center<strong class="block">1544-5357</strong></p>
+          <div class="select">
+            <a>Family Site</a>
+            <ul>
+              <li><a>홈앤톤즈</a></li>
+              <li><a>컬러디자인센터</a></li>
+              <li><a>파우톤분체도료</a></li>
+              <li><a>카오클자동차도료</a></li>
+              <li><a>삼화페인트 구매포털</a></li>
+              <li><a>대리점전용시스템</a></li>
+            </ul>
+          </div>
+        </div>
+        <address>
+          instagram youtube Blog <span class="block"></span>
+          삼화페인트공업(주) 대표이사: 오진수, 류기붕<span class="block"></span>
+          서울본사: 서울 종로구 돈화문로 58 (묘동)<span class="block"></span>
+          안산공장: 경기도 안산시 단원구 별망로 178 (성곡동)
+        </address>
+        <p class="copyright">ⓒ 2020 SAMHWA PAINTS INDUSTRIAL CO., LTD</p>
+      </footer>
+  </div>
+  </body>
+</html>
