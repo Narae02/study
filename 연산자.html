@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>연산자</title>
+  <title>반복문</title>
   <script>
-for (var i = 0; i < 10; i++) {
+var i = 0;
+while (i < 10) {
+  i++;
+  if (i % 2 === 0) {
+    continue;
+  }
   alert(i);
-}
-      console.log(i);
+} //continue가 있으면 그 아랫부분은 실행하지 않고 다음 반복문으로 넘어갑니다. 위의 경우는 i가 짝수일 때 continue를 합니다. 
+//따라서 1부터 10 사이의 홀수만 alert를 하고 넘어갑니다. 
+//continue는 반복문의 공통된 수행 작업에서 예외를 두고 싶을 때 사용
 
 
   </script>
