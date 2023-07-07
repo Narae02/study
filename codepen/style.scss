@@ -1,0 +1,300 @@
+@import url(https://fonts.googleapis.com/css?family=IBM+Plex+Sans);
+            
+$distance: 32px; // $layout-03
+
+$fade-speed: 400ms; // $duration--slow-01
+$slide-speed: 400ms; // $duration--slow-01
+
+$easing: cubic-bezier(0, 0, 0.3, 1); // entrance expressive
+$fade-easing: $easing;
+$slide-easing: $easing;
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    color: #161616;
+    line-height: 1.375em;
+    font-weight: 400;
+    letter-spacing: 0px;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 25vh;
+}
+
+body {
+    &::after,
+    &::before {
+        // content: '';
+        display: block;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        background-color: #ee5396;
+        opacity: .2;
+        height: calc(100vh / 16 * 3);
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    &::before {
+        top: 0;
+    }
+    
+    &::after {
+        bottom: 0;
+    }
+}
+
+section,
+nav {
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    padding: 6rem 2rem 0;
+    text-align: center;
+}
+
+form {
+    background: #f5f5f5;
+    padding: 32px;
+    padding-bottom: 0;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+form > div {
+    box-sizing: border-box;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 25%;
+    margin-bottom: 32px;
+
+    @media only screen and (max-width: 750px) {
+        width: 50%;
+    }
+}
+
+form label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .75rem;
+    lilne-height: 1rem;
+    font-weight: 400;
+    letter-spacing: .32px;
+    display: block;
+    margin-bottom: 4px;
+    
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 8px;
+    border: 0;
+    border-bottom: 1px solid #8d8d8d;
+    height: 2.5rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .875rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    letter-spacing: .16px;
+}
+
+form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    box-sizing: border-box;
+    
+    &.reduced-padding {
+        min-height: initial;
+    }
+    
+    &.mixed {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    @media only screen and (max-width: 750px) {
+        height: initial;
+
+        &.mixed {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+    &.left .content,
+    &.mixed:nth-child(even) .content {
+        padding-left: 0;
+        order: 0;
+    
+        @media only screen and (max-width: 750px) {
+            order: 1;
+        }
+    }
+    
+    &.right .content,
+    &.mixed:nth-child(odd) .content {
+        padding-right: 0;
+        order: 1;
+    }
+}
+
+.container {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+    
+    &.gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    @media only screen and (max-width: 750px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    order: 1;
+    
+    @media only screen and (max-width: 750px) {
+        margin-bottom: 2rem;
+    }
+}
+
+.content {
+    font-size: 1rem;
+    padding: 0 5vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media only screen and (max-width: 750px) {
+        padding: 0;
+        width: 90%;
+    }
+    
+    p {
+        margin: 0;
+        margin-bottom: 2rem;
+        
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+a {
+    color: #0f62fe;
+    font-size: 1rem;
+    text-decoration: none;
+
+    &:hover {
+        color: #0353e9;
+        text-decoration: underline;
+    }
+    
+    &:active,
+    &:focus {
+        outline: 2px solid #0f62fe;
+    }
+}
+
+
+h2 {
+    margin-top: 50vh;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #515151;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0;
+    font-weight: 400;
+    padding-top: 32px;
+}
+
+.title {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 2rem;
+}
+
+
+
+
+/* animation jazz */
+.js {
+    .scroll-animation {
+        &--fade {
+            opacity: 0;
+//             transition: opacity 400ms cubic-bezier(0.4, 0.14, 1, 1); // duration--slow-01 fade // expressive exit
+
+            &.scroll-animation--fade-in {
+                opacity: 1;
+//                 transition: opacity 400ms cubic-bezier(0, 0, 0.3, 1); // duration--slow-01 fade // expressive in
+            }
+        }
+        
+        &--slide { // in
+            // .scroll-animation {
+            position: relative;
+            top: 0;
+            left: 0;
+
+            // out
+            &--up {
+                top: $distance;
+            }
+            &--up-right {
+                top: $distance;
+                left: -$distance;
+            }
+            &--right {
+                left: -$distance;
+            }
+            &--down-right {
+                top: -$distance;
+                left: -$distance;
+            }
+            &--down {
+                top: -$distance;
+            }
+            &--down-left {
+                top: -$distance;
+                left: $distance;
+            }
+            &--left {
+                left: $distance;
+            }
+            &--up-left {
+                top: $distance;
+                left: $distance;
+            }
+        }
+        
+        &--fade,
+        &--slide {
+            transition: opacity $fade-speed $fade-easing, left $slide-speed $slide-easing, top $slide-speed $slide-easing; // duration--slow-01 fade // expressive in
+        }
+    }
+}
+

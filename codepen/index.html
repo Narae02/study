@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./script.js">
+    <link rel="stylesheet" href="./style.scss">
+    <link rel="stylesheet" href="./scroll-animation-demo.markdown">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  
+</head>
+<body>
+    <form>
+        <div>
+            <label for="count">Content sections</label>
+            <input id="count" type="number" value="5" />
+        </div>
+        <div>
+            <label for="slide-options">Slide options</label>
+            <select id="slide-options"></select>
+        </div>
+        <div>
+            <label for="iteration-count">Iteration count</label>
+            <select id="iteration-count">
+                <option value="1">Once</option>
+                <option value="0" selected>Loop</option>
+                <option value="random">Random</option>
+            </select>
+        </div>
+        <div>s
+            <label for="selector">Select content</label>
+            <select id="selector">
+                <option value="0">Both</option>
+                <option value="1" selected>Image</option>
+                <option value="2">Content</option>
+                <option value="random">Random</option>
+            </select>
+        </div>
+        <div>
+            <label for="align-content">Align content</label>
+            <select id="align-content">
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="mixed" selected>Mixed</option>
+            </select>
+        </div>
+        <div>
+            <label for="padding">Reduce padding</label>
+            <input type="checkbox" id="padding" class="checkbox" />
+        </div>
+    </form>
+            
+    <div class="content-generator"></div>
+</body>
+</html>
