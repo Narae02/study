@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <!-- 4숙제 -->
+
+  <!-- 카드만들기 -->
+  <div class="row row-cols-1 row-cols-md-3 g-3 m-5">
+    <div class="col">
+      <!-- <div class="col" style="width:600px;"> -->
+      <!-- W,H px값 설정utillity 못찾음 -->
+      <div class="card shadow mb-5 bg-body-tertiary rounded-1 border-0">
+        <img src="/img/portfolio-1.jpg" class="card-img-top" alt="...">
+        
+        <div class="card-body h-100">
+          <span class="badge rounded-pill text-bg-primary mb-2">Primary</span>
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <!-- Media object -->
+          <div class="d-flex mt-4">
+            <!-- Image -->
+            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle"
+              style="width: 60px; height: 60px;" />
+            <!-- Body -->
+            <div class="pb-3">
+              <h5 class="fw-bold">
+                John Doe
+                <small class="text-muted d-block text-black-50 fw-medium">Posted on February 19, 2021</small>
+              </h5>
+            </div>
+          </div>
+          <!-- Media object -->
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card shadow mb-5 bg-body-tertiary rounded rounded-1 border-0">
+        <img src="/img/portfolio-2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <span class="badge rounded-pill text-bg-primary mb-2">Primary</span>
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <!-- Media object -->
+          <div class="d-flex mt-4">
+            <!-- Image -->
+            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle"
+              style="width: 60px; height: 60px;" />
+            <!-- Body -->
+            <div class="pb-3">
+              <h5 class="fw-bold">
+                John Doe
+                <small class="text-muted d-block text-black-50 fw-medium">Posted on February 19, 2021</small>
+              </h5>
+            </div>
+          </div>
+          <!-- Media object -->
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card shadow mb-5 bg-body-tertiary rounded rounded-1 border-0">
+        <img src="/img/portfolio-3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <span class="badge rounded-pill text-bg-primary mb-2">Primary</span>
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+            content. This content is a little bit longer.</p>
+          <!-- Media object -->
+          <div class="d-flex mt-4">
+            <!-- Image -->
+            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="John Doe" class="me-3 rounded-circle"
+              style="width: 60px; height: 60px;" />
+            <!-- Body -->
+            <div class="pb-3">
+              <h5 class="fw-bold">
+                John Doe
+                <small class="text-muted d-block text-black-50 fw-medium">Posted on February 19, 2021</small>
+              </h5>
+            </div>
+          </div>
+          <!-- Media object -->
+
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class="col">
+      <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <!-- 카드만들기 숙제 해설 -->
+  <div class="container" style="width: 400px;">
+    <div class="card shadow">
+      <img src="/img/spring.jpg" class="card-img-top">
+      
+      <div class="card-body">
+        <span class="badge rounded-pill bg-primary">News</span>
+        <h4 class="mt-2">Blog Post Title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      
+      <div class="d-flex p-3 align-items-center">
+        <div class="flex-shrink-0 ">
+          <img src="/img/spring.jpg" width="50px">
+        </div>
+        <div class="flex-grow-1 ms-3 mt-1">
+          <h6 class="fw-bold mb-0">Kelly Rowan </h6>
+          <p class="text-muted mb-0">March 12, 2021, 6 min read</p>
+        </div>
+      </div>
+
+    </div>
+ </div> 
+
+  <!-- 2 -->
+  <div class="container mt-5">
+    <div class="row">
+      <!-- 1) row : 내부를 12칸으로 쪼개주는 class명 / flex와 같은 기능 -->
+      <div class="col">안녕</div>
+      <!-- 2) 정확히 나누고 싶으면 col-4 이런식으로 숫자를 적어 -->
+      <div class="col">오늘은 선선해</div>
+      <div class="col">하늘도 파래!</div>
+      <!-- 3) md(xl:1200px, lg:992px, md:768px, sm:576px(grid system에 나와있음))는 col을 이용해 가로로 쪼갠걸 반응형으로 만드는 조건문
+      col-md-6 : md사이즈이상 에서만 적용해주세요 -->
+    </div>
+  </div>
+  <!-- 3-1숙제. (조건) PC사이즈에서는 4열, 태블릿 사이즈에서는 2열, 모바일에서는 1열로 정렬 -->
+  <div class="container mt-5">
+    <div class="row">
+      <!-- <div class="col-lg-3 col-md-6 col-sm-12"> 모바일에서는 col-sm-12 할 필요없음 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="card">
+          <img src="/img/portfolio-1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card">
+          <img src="/img/portfolio-1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card">
+          <img src="/img/portfolio-1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="card">
+          <img src="/img/portfolio-1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 col-md-6"> 안녕 </div>
+    <div class="col-lg-3 col-md-6"> 안녕 </div>
+    <div class="col-lg-3 col-md-6"> 안녕 </div>
+    <div class="col-lg-3 col-md-6"> 안녕 </div>
+  </div>
+  <!-- 3-2숙제. 위 사진처럼 보이는 반응형 레이아웃을 만들어보세요 -->
+  <!-- <div class="container mt-5">
+    <div class="row pt-5">
+      <div class="col-md-5 col-sm-10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt aut, porro neque optio mollitia eius recusandae ducimus alias aliquam ipsa laborum odio culpa est fugiat expedita aperiam possimus pariatur repellat.</div>
+      <div class="col-md-2 col-sm-2"><img src="/img/spring.jpg" alt="1번이미지" class="rounded-circle ct" style="width: 100px;height: 100px;"></div>
+      <div class="col-md-5 col-sm-0"></div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-5"></div>
+      <div class="col-2"><img src="/img/spring.jpg" alt="2번이미지" class="rounded-circle" style="width: 100px;height: 100px;"></div>
+      <div class="col-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ullam aliquid nihil beatae quisquam voluptatibus doloremque omnis corporis accusantium culpa laborum ab labore nostrum, adipisci distinctio officiis sed eum ex!</div>
+    </div>
+    <div class="row mt-5 mb-5">
+      <div class="col-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt aut, porro neque optio mollitia eius recusandae ducimus alias aliquam ipsa laborum odio culpa est fugiat expedita aperiam possimus pariatur repellat.</div>
+      <div class="col-2"><img src="/img/spring.jpg" alt="3번이미지" class="rounded-circle" style="width: 100px;height: 100px;"></div>
+      <div class="col-5"></div>
+    </div>
+  </div> -->
+  <div class="container mt-5">
+    <div class="row align-items-center">
+      <div class="col-2 col-md-2 text-center"><img class="w-75" src="/img/author3.png" alt="1번이미지"></div>
+      <div class="col-10 col-md-5 order-md-first text-end">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt aut, porro neque optio mollitia eius recusandae ducimus alias aliquam ipsa laborum odio culpa est fugiat expedita aperiam possimus pariatur repellat.</div>
+      <div class="col-md-5"></div>
+    </div>
+
+    <div class="row align-items-center mt-5">
+      <div class="col-2 col-md-2 order-md-2 text-center"><img class="w-75" src="/img/author3.png" alt="2번이미지"></div>
+      <div class="col-10 col-md-5 order-md-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt aut, porro neque optio mollitia eius recusandae ducimus alias aliquam ipsa laborum odio culpa est fugiat expedita aperiam possimus pariatur repellat.</div>
+      <div class="col-md-5 order-md-1"></div>
+    </div>
+
+    <div class="row align-items-center mt-5">
+      <div class="col-2 col-md-2 text-center"><img class="w-75" src="/img/author3.png" alt="3번이미지"></div>
+      <div class="col-10 col-md-5 order-md-first text-end">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt aut, porro neque optio mollitia eius recusandae ducimus alias aliquam ipsa laborum odio culpa est fugiat expedita aperiam possimus pariatur repellat.</div>
+      <div class="col-md-5"></div>
+    </div>
+
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

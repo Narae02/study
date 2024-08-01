@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 간혹 border-collapse 속성을 table태그에 적용하면 border-radius가 안먹는 경우가 있습니다. 
+    그럴 때 사용할만한 방법들을 소개해드립니다. 
+
+---------------- table 태그에 border-radius가 안먹을 때 1. ----------------------
+(해봤는데 안됨) */
+/* table {
+  border-collapse : collapse;
+  border-spacing : 0;
+}
+
+(왼쪽위에있는 td) {
+  border-top-left-radius : 5px;
+}
+  */
+
+ 
+
+/* ---------------- table 태그에 border-radius가 안먹을 때 2. 
+(box-shadow라는 속성을 이용해 테두리를 가짜로 만들어내는 편법 -> box-shadow는 그림자 넣는 속성)---------------- */
+
+table {
+  border-collapse : collapse;
+  border-radius : 7px;
+  border-style : hidden;
+  box-shadow : 0 0 0 1px #666;
+}
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>s</th>
+        <th>sa</th>
+        <th>aadv</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>zd</td>
+        <td>dfg</td>
+        <td>dfg</td>
+      </tr>
+      <tr>
+        <td>fg</td>
+        <td>ad</td>
+        <td>af</td>
+      </tr>
+
+    </tbody>
+  </table>
+</body>
+</html>

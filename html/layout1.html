@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header"></div>
+    <!-- 해당 스타일에 inline-block을 주면 ............결론: 귀찮은 inline-block 가 된다.
+      1) THML태그에 사이 공백을 제거해야 가로로 정렬 됨 (스페이스바의 공백을 웹버전에서 차지하기 때문) 
+      2) 부모의 속성에 font-size:0px 을 주는 방법도 있음(inherit되는 스타일로 중요도가 가장 낮음) ex) <div class="container" style="font-size:0px"> -->
+    <div class="left-menu"></div><div class="right-menu"><p>안녕</p></div> <!-- 타이핑을 치게되면 해당박스가 아래로 밀리는 이상현상발생, 해결방법: vertical-align: top; / 원리는  -->
+    <div class="footer"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+.bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bubble {
+  position: relative;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  animation: float 4s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;  /* 기본 크기 */
+  height: 60px; /* 기본 크기 */
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.bubble:hover {
+  /*  */
+  background-color: orange;
+  width: calc(60px + 1.5 * (attr(data-percent) - 50));  /* 100%일 때 135px, 50%일 때 60px */
+  height: calc(60px + 1.5 * (attr(data-percent) - 50)); /* 100%일 때 135px, 50%일 때 60px */
+}
+
+.bubble span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #333;
+  display: none;
+}
+
+.bubble:hover span {
+  display: block;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.description p {
+  font-size: 1.2em;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.container{
+  width: 800px;
+}
+.header{
+  width:100%;
+  height: 50px;
+  background-color: cadetblue;
+}
+.left-menu{
+  width: 20%;
+  height: 400px;
+  background-color: rgb(237, 195, 118);
+  /* float: left; */
+  display: inline-block; /* 한 행이 아닌, 20%만 차지 */
+}
+.right-menu{
+  width: 80%;
+  height: 400px;
+  background-color: brown;
+  /* float: right; */
+  display: inline-block;
+  vertical-align: top;
+
+}
+.footer{
+  width: 100%;
+  height: 100px;
+  background-color: darkgray;
+  /* clear: both; */
+}

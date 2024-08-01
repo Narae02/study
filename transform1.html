@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>큐브애니</title>
+    <link rel="stylesheet" href="cube.css">
+    <style>
+                          html,body{
+                      height:100%;
+                    }
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      }
+                    .scene{
+                      width:200px;
+                      height:200px;
+                      perspective:500px;
+                    }
+                    .scene .cube{
+                      width:100%;
+                      height:100%;
+                      transform-style:preserve-3d;
+                      position:relative;
+                      transform: rotate3d(1,1,0,-31deg) translateZ(-100px);
+                      animation: spin 5s infinite linear; 
+                    }
+                    @keyframes spin{
+                      0%{ transform: rotateX(0) rotateY(0);}
+                      100%{ transform: rotateX(360deg) rotateY(360deg);}
+                  }
+                    .scene .cube .face{
+                      width:100%;
+                      height:100%;
+                      background-color:#ccc;
+                      position:absolute;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      color: #fff;
+                      font-size: 48px;
+                    }
+                    .scene .cube .face-front{
+                    background: rgba(98, 206, 203, 0.7);
+                    transform: translateZ(100px);
+                    animation-name: f;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards; animation-direction:reverse;
+                    }
+              @keyframes f{
+                0%{
+                  transform: translateZ(100px);
+                }
+                60%{
+                 transform: translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform: translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+      @keyframes f2{
+                0%{
+                  transform:rotateY(180deg) translateZ(100px);
+                }
+                60%{
+                 transform:rotateY(180deg) translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform:rotateY(180deg) translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+
+                    .scene .cube .face-back{
+                      background: rgba(98, 155, 206, 0.7);
+                      transform:rotateY(180deg) translateZ(100px);
+                       animation-name: f2;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards; animation-direction:reverse;
+                    }
+                    .scene .cube .face-top{
+                      background: rgba(98, 101, 206, 0.7);
+                      transform:rotateX(90deg) translateZ(100px);
+                       animation-name: f3;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards; animation-direction:reverse;
+                    }
+ @keyframes f3{
+                0%{
+                  transform:rotateX(90deg) translateZ(100px);
+                }
+                60%{
+                 transform:rotateX(90deg) translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform:rotateX(90deg) translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+                    .scene .cube .face-right{
+                      background: rgba(149, 98, 206, 0.7);
+                      transform:rotateY(90deg) translateZ(100px);
+                       animation-name: f4;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards; animation-direction:reverse;
+                    }
+ @keyframes f4{
+                0%{
+                  transform:rotateY(90deg) translateZ(100px);
+                }
+                60%{
+                 transform:rotateY(90deg) translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform:rotateY(90deg) translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+                    .scene .cube .face-bottom{
+                      background: rgba(203, 98, 206, 0.7);
+                      transform:rotateX(-90deg) translateZ(100px);
+                       animation-name: f5;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards; animation-direction:reverse;
+                    }
+@keyframes f5{
+                0%{
+                  transform:rotateX(-90deg) translateZ(100px);
+                }
+                60%{
+                 transform:rotateX(-90deg) translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform:rotateX(-90deg) translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+      .scene .cube .face-left{
+        background: rgba(206, 98, 155, 0.7);
+        transform:rotateY(-90deg) translateZ(100px);
+        animation-name: f6;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-direction:reverse;
+      }
+@keyframes f6{
+                0%{
+                  transform:rotateY(-90deg)translateZ(100px);
+                }
+                60%{
+                 transform:rotateY(-90deg) translateZ(300px);
+                  opacity: 0.7;
+                }
+                100%{
+                  transform:rotateY(-90deg)translateZ(4000px);
+                  opacity: 0;
+
+                }
+              }
+
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="cube">
+        <div class="face face-front">front</div>
+        <div class="face face-back">back</div>
+        <div class="face face-top">top</div>
+        <div class="face face-right">right</div>
+        <div class="face face-bottom">bottom</div>
+        <div class="face face-left">left</div>
+      </div>
+    </div>
+  </body>
+</html>

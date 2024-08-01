@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+ padding: 0;
+ margin: 0;
+}
+/* /////////네비게이션////////// */
+
+
+
+
+/* ///////////블로그/////////// */
+.wraper{
+  width: 800px;
+  padding: 30px;
+  margin: 0 auto;
+}
+.left{
+  width: 75%;
+  height: 200px;
+  float: left;  
+}
+.left div img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+
+}
+
+/* ---------------아우리 */
+.profileright{
+  padding-left: 10px;
+  display: inline-block;
+}
+.profileright h3{
+  font-weight: normal;  
+}
+p{
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+.title{
+  margin-top: 15px;
+}
+.title h3{
+  padding-bottom: 15px;
+}
+.rigth{
+  width: 20%;
+  height: 200px;
+  float: left;
+  margin-left: 5%;
+}
+.rigth img{
+  width: 100%;
+  height: auto;
+  vertical-align: center;
+}

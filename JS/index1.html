@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert박스 UI만들기</title>
+  <link rel="stylesheet" href="main1.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- bootstrap cdn -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+  crossorigin="anonymous"></script>
+  </head>
+<body>
+ 
+
+  <!-- 3. 서브메뉴 만들어보기와 classList 다루기 -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar navbar-brand">Narzit</span>
+      <span id="" class="badge bg-dark ms-auto mx-3">Dark 🔄</span>
+
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav> 
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>
+
+  <!-- 10-4. 페이지 스크롤바 UI -->
+    <div class="progressBar"></div>
+
+
+    <div style="padding-top: 150px;"></div>
+
+   <!-- 1. 공식: 1. 미리 html/css디자인  2.필요할때 보여달라고 js짜기 -->
+   <h1 id="hello">안녕하세요</h1>
+   <h1 id="hi"> JS 초보에요</h1>
+   
+   <!-- 2. Alert박스 -->
+   <div class="alert_box" id="alert">
+     <p id="title">알림창임</p>
+     <button type="button" class="btn_close" id="close_alert">닫기</button>
+   </div>
+   <button type="button" class="btn btn-outline-info" onclick="아이디알림창();">CLICK 1</button>
+   <button type="button" class="btn btn-outline-info" onclick="비번알림창();">CLICK 2</button>
+ 
+   <!-- 2-1. Alert박스 파라미터문법 -->
+  <div style="height: 100px;">스크롤생기기 위한 코드</div>
+  <!-- 4. jquery -->
+  <p class="hello">안녕</p> 
+  
+  <!-- 6. setTimeout 타이머 -->
+  <div class="alert alert-danger time_alert">
+    <span style="color:red; font-weight: bold;">
+    <span class="timer">5</span>초</span> 이내 
+    구매시 사은품 증정!
+  </div>
+
+  <!-- 7. 캐러셀 (이미지 슬라이드) 만들기 -->
+  <div style="overflow: hidden;">
+    <div class="slide_container">
+    <div class="slide_box"><img src="img/card1.jpeg" alt="카드이미지1"></div>
+    <div class="slide_box"><img src="img/card2.jpg" alt="카드이미지2"></div>
+    <div class="slide_box"><img src="img/card3.jpg" alt="카드이미지3"></div>
+    <div class="slide_box"><img src="img/card4.jpeg" alt="카드이미지4"></div>
+    <div class="slide_box"><img src="img/card5.jpg" alt="카드이미지5"></div>
+    </div>
+  </div>
+  <div class="btn_container">
+    <button class="slide_1">1</button>
+    <button class="slide_2">2</button>
+    <button class="slide_3">3</button>
+  </div>
+  <div class="btn_container" style="margin-top:20px;">
+    <button class="prev">이전</button>
+    <button class="next">다음</button>
+  </div>
+
+
+  <div style="margin-top: 150px;"></div>
+
+  <!-- 10-2. 회원약관기능 -->
+   <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll;">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus exercitationem provident aspernatur a voluptatem obcaecati 
+    iusto autem inventore ex itaque, eos repellendus earum non id consequatur nam voluptas rem alias.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque odit incidunt, sed vero tempore eos 
+    consectetur eum voluptatum ipsum atque non cumque debitis laudantium vel alias illum, voluptatibus asperiores explicabo.
+  </div>
+
+
+  <div style="margin-top: 150px;"></div>
+
+
+
+  <script>
+    // 1. 셀렉터(바꿀요소) 2. 메소드(무엇을) 3. 어떻게
+    document.getElementById('hello').innerHTML = '안녕!';
+    document.getElementById('hello').style.fontSize='16px';
+    document.getElementById('hi').innerHTML = 'JS 고수에요';
+    
+    
+    // 2.Alert박스
+    document.getElementById('close_alert').innerHTML='X';
+
+    // function closing() {
+    //   document.getElementById('alert').style.display='none';
+    // }
+    document.getElementById('close_alert').addEventListener('click', function(){
+      document.getElementById('alert').style.display='none';
+    }); //이벤트리스너로 onclick없이 개발(파라미터 두개필요)
+
+    function 아이디알림창() {
+      document.getElementById('title').innerHTML='아이디를 입력하세요';
+      document.getElementById('alert').style.display='block';
+
+    }
+
+    function 비번알림창() {
+      document.getElementById('title').innerHTML='비밀번호를 입력하세요';
+      document.getElementById('alert').style.display='block';
+
+    }
+
+
+    // 2-1. Alert박스 파라미터문법
+
+    //3. 서브메뉴 만들어보기와 classList 다루기
+    // 3-1.
+    // document.getElementsByClassName('navbar-toggler')[0].addEventListener('click',
+    //  function(){
+    //   document.getElementsByClassName('list-group')[0].classList.toggle('show'); //toggle: show가 있으면 제거, 없으면 추가!(한번에 해결가능)
+    // }); //이벤트리스너로 클래스 추가/제거하기
+
+    // 3-2.
+    document.querySelector('.navbar-toggler').addEventListener('click',
+     function(){
+      document.querySelectorAll('.list-group')[0].classList.toggle('show'); 
+    }); //getElementsByClassName대신에 쿼리셀렉터로 클래스 추가/제거하기
+
+    // 4. jquery
+    // document.querySelector('.hello').innerHTML='우히히히';
+    // querySelector, querySelectorAll = $
+    $('.hello').html('우히히히');
+    $('.hello').css('color', 'red');
+
+
+    // 5. 다크모드
+    //작성1. badge버튼 눌렀을 때 이벤트 리스너 발생
+    var 클릭횟수저장 = 0;
+
+    $('.badge').on('click', function() {
+      클릭횟수저장 ++;
+
+      console.log(클릭횟수저장);
+      // 작성2. 클릭횟수 몇번인지 저장(변수로) - 홀수(3%2=0)인지 계산 - 참이면 글자색상 변경(.badge의 css를 color:red;로 변경)
+      // *참고) 변수에 +1 하는 법(기존 값에 +1 하고 싶으면) : 변수명++ / 변수 += 1 / 변수 = 변수 + 1
+      if (클릭횟수저장 % 2 == 1) {
+        $('.badge').html('Dark 🔄');
+        $('body').addClass('dark');
+        $('.badge').css('color','red');
+      }else {
+        $('.badge').html('Light 🔄');
+        $('body').removeClass('dark');
+        $('.badge').css('color','green');
+      }
+    });  // 클릭 횟수가 짝수(2%2=0)면 버튼 내부 글자를 Dark로 변경
+
+
+    // 6. setTimeout & setInterval
+    //setTimeout 1초후에 div.time_alert를 없애기
+    // setTimeout(function(){
+    //   $('.time_alert').hide();
+    // }, 1000);
+
+    //setInterval 3초마다 알람창 띄우기
+    // setInterval(function(){
+    //   alert('안녕')
+    // }, 30000);
+
+    // 6-1. 숙제: 1초마다 5라는 문자를 1씩 감소시키다가 0이 되면 <div>를 안보이게 처리합시다. 
+    var count = 5;
+
+    var timer = setInterval(function(){
+
+      count = count - 1; // '5'이 1씩 줄어들 게
+      document.querySelector(".timer").innerHTML = count;   //1초마다 글자수 바뀌게
+      
+      if (count <= 0){
+        clearInterval(timer);
+      };
+      if(count == 0){
+        $('.time_alert').hide(); 
+      };
+    
+    }, 1000);
+  
+  
+  //쌤 버전
+  //   var count = 5;
+
+  // setInterval(function(){
+  //   count -= 1;
+  //   if (count >= 0){
+  //     document.querySelector('.timer').innerHTML = count;
+  //   } 
+  // }, 1000);
+
+  // 7. 캐러셀 (이미지 슬라이드) 만들기
+  //숫자버튼 ver
+  $('.slide_1').on('click', function(){
+    $('.slide_container').css('transform', 'translateX(0vw)');
+  });
+  $('.slide_2').on('click', function(){
+    $('.slide_container').css('transform', 'translateX(-100vw)');
+    // document.querySelector('.slide_container').style.transform = 'translateX(-100vw)';
+  });
+  $('.slide_3').on('click', function(){
+    $('.slide_container').css('transform', 'translateX(-200vw)');
+  });
+  
+  //이전, 다음버튼 ver
+  // var currentSlide = 1;
+
+  // $('.next').on('click', function(){
+  //   if(currentSlide == 1){  //지금사진이1이면
+  //     $('.slide_container').css('transform', 'translateX(-100vw)'); //2번 보여주세요
+  //     currentSlide++; //변수는 2로 업데이트해주세요
+
+  //   }else if(currentSlide == 2){
+  //     $('.slide_container').css('transform', 'translateX(-200vw)');
+  //     currentSlide++;
+  //   }
+  // });
+
+  // $('.prev').on('click', function(){
+  //   if(currentSlide == 3){
+  //     $('.slide_container').css('transform', 'translateX(-100vw)');
+  //     currentSlide--;
+  //   }else if(currentSlide == 2){
+  //     $('.slide_container').css('transform', 'translateX(0vw)');
+  //     currentSlide--;
+  //   }
+  // });
+  
+  //확장형 버튼ver(사진이 4개, 5....일일히 코드수정 귀찮)
+  var currentSlide = 1;
+  var totalSlides = 5;
+  $('.next').on('click', function(){
+      if (currentSlide >= totalSlides){
+        currentSlide = 0;
+      }
+      $('.slide_container').css('transform', 'translateX(-' + currentSlide + '00vw)'); //문자 중간에 변수넣기
+      currentSlide++; //변수는 +1씩 업데이트해주세요
+    
+  });
+
+  $('.prev').on('click', function(){
+      if (currentSlide <= 1){
+        currentSlide = totalSlides + 1; // 첫 번째 슬라이드 이전에는 마지막 슬라이드로 이동...?이해못했어..
+      } 
+      currentSlide--; 
+      $('.slide_container').css('transform', 'translateX(-' + (currentSlide - 1) + '00vw)');
+
+  });
+
+  //8. 함수에 분과 초를 차례로 파라미터로 입력하면 ms단위로 바꿔서 뱉어주는 함수  
+  function 단위 (a, b){
+    return (a * 60 + b ) * 1000
+  }
+  console.log(단위(2,10))
+
+  //9. 
+  function 함수 (원가 , 첫구매여부){
+    var 할인가 = 원가 * 0.9;
+
+    if (첫구매여부  == true) {
+       할인가 = 할인가 - 1.5;
+    }
+    return 할인가;  //소수2째자리에 반올림 하고싶을 경우: return parseFloat(할인가.toFixed(2))
+
+
+  }
+  console.log(함수(10, true));
+
+  //10. 스크롤기능
+  // window.addEventListener('scroll' , function(){
+  //   window.screenY; // = window.pageYOffset; 유저가 스크롤 한 값 출력
+  //   window.scrollTo(0,100); // 지정px만큼 강제스크롤
+  //   window.scrollBy(0,100); // 현재 위치부터 강제로 스크롤하기
+    
+  // });
+
+  // 10-1. 스크롤에 반응하는 navbar UI
+  //스크롤바를 100px 내리면 로고 폰트사이즈를 작게 만들어오십시오.
+  //반대로 100px 미만으로 내리면 로고 폰트사이즈를 크게 만들어옵시다.
+  $(window).on('scroll', function(현재스크롤위치){
+    var 현재스크롤위치= ($(window).scrollTop()); //현재 스크롤바 위치 출력
+    console.log('현재스크롤위치' + 현재스크롤위치);
+
+    if(현재스크롤위치 >= 100){
+    $('.navbar-brand').css('font-size', '20px'); //.navbar폰트사이즈를 20px로 변경
+    // $('.navbar').attr('style','color: 20px !important'); //제이쿼리 important 주는 법
+    }else if(현재스크롤위치 < 100){
+      $('.navbar-brand').css('font-size', '30px');
+    }
+
+  });
+
+  // 다른사람꺼
+//   window.addEventListener('scroll', function() {
+// if (window.scrollY > 100) {
+//     document.getElementsByClassName('navbar-brand')[0].style.fontSize = '20px'
+// } else if (window.scrollY < 100) {
+//     document.getElementsByClassName('navbar-brand')[0].style.fontSize = '25px'
+// }
+// });
+
+  // 쌤 버전
+
+  // $(window).on('scroll' , function(){
+  //   if (window.screenY >= 100) {
+  //     $('.navbar-brand').css('font-size', '20px');
+  //   }else{
+  //     $('.navbar-brand').css('font-size', '30px');
+  //   }
+  // });
+
+
+  
+  // 10-2. 회원약관 스크롤바 거의 끝까지 내리면 alert()띄우기
+  // 'div'의 스크롤바 내린 양 + 스타일 준 div높이 (눈에보이는 높이) == div의 실제 높이
+  //맞으면 창 띄우기
+
+  $('.lorem').on('scroll', function(){
+    var 스크롤양 = document.querySelector('.lorem').scrollTop; // <div> 스크롤바 내린 높이는 셀렉터.scrollTop //window.screenY : 전체페이지 스크롤
+    var 실제높이 = document.querySelector('.lorem').scrollHeight; // <div>실제 높이
+    var 높이 = document.querySelector('.lorem').clientHeight; // 스타일 준 div높이 (눈에보이는 높이)
+    console.log(스크롤양, 실제높이, 높이);  // 140, 240, 100
+    if(스크롤양 + 높이  > 실제높이 - 10){
+      alert('다 읽었군요!');
+    }
+  });
+
+  // 10-3. 현재 페이지를 끝까지 스크롤했는지 체크하려면
+  $(document).on('scroll', _.debounce(function(){
+    var webA = window.scrollY;   //현재까지 웹페이지 스크롤한 양
+    var webB = document.querySelector('html').scrollHeight; //실제 웹페이지 실제높이
+    var webC = document.querySelector('html').clientHeight; //현재 웹페이지 보이는 높이임
+    console.log('현재 스크롤' + webA, '웹페이지 실제높이' + webB, '현재 웹페이지 보이는 높이' + webC);
+  
+    if(webA + webC > webB - 10 && !scrolled){ // 조건을 만족하고 아직 알림이 표시되지 않은 경우
+      scrolled = true; // 플래그 설정
+      alert('이 페이지의 마지막입니다 ;)');
+      // scrolled = true; //alert 중복 방지용으로 넣었는데 안됨
+    }else {
+        alert('Scroll event!');
+    }
+  
+  }, 2000));
+  // var scrolled = false;
+  // $(document).removeEventListener('scroll', arguments.callee);
+//   $(document).on('scroll', _.debounce(function(){
+//     alert('Scroll event!');
+// }, 2000));
+
+
+  // 10-4. (응용) 페이지 내릴 때 마다 페이지를 얼마나 읽었는지 진척도를 알려주는 UI 같은건 어떻게 만들면 될까요?
+  // 답 : https://velog.io/@kwonboryong/CodingApple-%EC%8A%A4%ED%81%AC%EB%A1%A4-%EC%9D%B4%EB%B2%A4%ED%8A%B8Scroll-Event
+
+// 페이지를 1% 읽으면 div 박스 길이는 1%
+
+// 페이지를 50%정도 읽으면 div 박스 길이는 50% 
+
+// 페이지 다 읽으면 div 박스 길이는 100% 
+
+  $(window).on('scroll',function(){
+
+    var scrollY = ($(window).scrollTop() / ($(document).height() - $(window).height()) * 100).toFixed(3);
+  $(".progressBar").css({
+    "width": scrollY + "%"
+  });
+
+
+
+  });
+
+  //스크롤 위치가 네비 높이랑 썸네일 높이 더한것보다 커지면 네비 나타나고 스크롤 진행바 나타내기
+  // if (scrollY > navHeight + thumHeight) {
+  //   top.style.opacity = '1';
+  //   top.style.position = 'fixed';
+  //   top.style.backgroundColor = 'rgba(255, 255, 255, .95)';
+  // }  // 이거 안해도 알아서 잘 되는데..?
+  
+ 
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- bootstrap cdn-->
+
+
+</body>
+</html>

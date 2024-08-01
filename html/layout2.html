@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 반응형 만들기 위한 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narzit 포트폴리오</title>
+  <link rel="stylesheet" href="/css/layout2.css">
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 구글아이콘 -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- fontawesome desktop -->
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css">
+</head>
+
+<body>
+  <!-- 0. 네비게이션 -->
+  <nav class="nav">
+    <div class="nav_h1">
+      <h1>Narzit</h1>
+    </div>
+    <div class="nav_contents">
+      <ul>
+        <a href="#">
+          <li>Home</li>
+        </a>
+        <a href="#">
+          <li>About</li>
+        </a>
+        <a href="#">
+          <li>Skill</li>
+        </a>
+        <a href="#">
+          <li>Portfolio</li>
+        </a>
+        <a href="#">
+          <li>Contact</li>
+        </a>
+      </ul>
+    </div>
+    <div class="nav_icon"><a href="#">
+        <span class="material-symbols-outlined">
+          menu
+        </span>
+      </a></div>
+
+  </nav>
+  <!-- ////////1. 메인화면//////// -->
+  <div class="container">
+    <div class="main-background">
+      <h1>Narzit Portfolio</h1>
+      <p>웹퍼블리셔 나지트의 개인 포트폴리오입니다.</p>
+      <button class="main-btn" href="#" alt="상단이미지 버튼">; |</button>
+    </div>
+    <!-- //////2. position 박스////// -->
+    <div class="main-box">
+      <h3 >" Narzit <span>: Narae + Azit</span> "</h3>
+      <p class="pseudo">즐기면서 재밌게 일하는 퍼블리셔가 되기위한<br>나래의 즐거운 개인공간입니다!</p>
+    </div>
+  </div>
+  <div class="container">
+    <!-- //////////3. 컨텍박스///////// -->
+    <div class="contack-box mb-30">
+      <h1 class="ct mb-5">1. form태그 연습
+      </h1>
+      <div class="wrap">
+      
+        <h2>Contack Us</h2>
+        <form action="" class="w-80">
+
+          Your Email<input type="email" name="Your Email" id="" placeholder="email@example.com">
+          <span>
+            <div>
+              First name<input type="text" name="First name" id="">
+            </div>
+            <div>
+              Last name<input type="text" name="Last name" id="">
+            </div>
+          </span>
+          <!-- Message<input type="text" name="Message" id="" class="message"> -->
+          Message<textarea class="message"></textarea>
+          <span class="flex-between">
+            <div>
+              <input type="checkbox" name="Subscribe" id="" class="check">Subscribe
+            </div>
+            <button type="submit" value="send" class="btn">SEND</button>
+            <!-- <input type="submit" value="send">SEND</input> -->
+          </span>
+
+        </form>
+      </div>
+    </div>
+    <!-- /////////////4. 테이블/////////// -->
+    <h1 class="ct mt-60 mb-5">2. Table연습</h1>
+
+    <div class="wrap mb-30">
+      <h2>Your shopping cart</h2>
+      <table class="shopping-table w-80 tr">
+        <thead>
+          <th colspan="2" class="ct">item</th>
+          <th>amount</th>
+          <th>price</th>
+          <th>total</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2" class="ct"><img src="../img/spring.jpg" alt="SONY 이미지1"></td>
+            <td class="tl"><b style="color: #333;">SONY</b></td>
+            <td rowspan="2">1</td>
+            <td rowspan="2">$ 12345</td>
+            <td rowspan="2">$ 12345</td>
+          </tr>
+          <tr>
+            <td class="tl">SONY제품 1</td>
+          </tr>
+          <tr>
+            <td rowspan="2" class="ct"><img src="../img/spring.jpg" alt="SONY 이미지2"></td>
+            <td class="tl"><b style="color: #333;">SONY</b></td>
+            <td rowspan="2">1</td>
+            <td rowspan="2">$ 12345</td>
+            <td rowspan="2">$ 12345</td>
+          </tr>
+          <tr>
+            <td class="tl">SONY제품 2</td>
+          </tr>
+          <tr>
+            <td colspan="5" class="total-tr">$ 총 합계</td>
+          </tr>
+
+        </tbody>
+      </table>
+      <div class="flex-between w-80 mt-15">
+        <a href="#" class="fb-left"><u>Edit your sopping cart</u></a>
+        <button type="submit" value="send" class="btn fb-right">Choose payment method</button>
+
+      </div>
+
+    </div>
+    <!-- 5. 반응형 content ver -->
+    <h1 class="ct mt-60 mb-5">3. Flex-Box연습</h1>
+
+    <div class="content_box">
+      <ul>
+        <i class="fa-solid fa-house mb-15"></i>
+        <h4>1st</h4>
+        <li>Lorem ipsum</li>
+      </ul>
+      <ul>
+        <i class="fa-regular fa-face-smile mb_15"></i>
+        <h4>2st</h4>
+        <li>Lorem ipsum</li>
+      </ul>
+      <ul>
+        <i class="fa-solid fa-cloud mb-15"></i>
+
+        <h4>3st</h4>
+        <li>Lorem ipsum</li>
+      </ul>
+      <ul>
+        <i class="fa-solid fa-poo mb-15"></i>
+
+        <h4>4st</h4>
+        <li>Lorem ipsum</li>
+      </ul>
+    </div>
+    <!-- 6. transition animation사용하기 -->
+    <h1 class="ct mt-60 mb-5">4. transition animation연습</h1>
+
+    <div class="shop_bg">
+      <div class="shop_container">
+        <div class="shop_item">
+          <div style="position: relative;">
+            <div class="overlay_wrap">
+              <div class="overlay">
+                <h4>상품이름</h4>
+                <p>150,000</p>
+              </div>
+            </div>
+            <img src="/img/product1-1.jpg" alt="이미지1">
+          </div>
+        </div>
+        <div class="shop_item">
+          <div style="position: relative;">
+            <div class="overlay_wrap">
+              <div class="overlay">
+                <h4>상품이름</h4>
+                <p>150,000</p>
+              </div>
+            </div>
+            <img src="/img/product2.jpg" alt="이미지1">
+          </div>
+        </div>
+        <div class="shop_item">
+          <div style="position: relative;">
+            <div class="overlay_wrap">
+              <div class="overlay">
+                <h4>상품이름</h4>
+                <p>150,000</p>
+              </div>
+            </div>
+            <img src="/img/product3.jpg" alt="이미지1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 6-1. transition animation 재수강 -->
+    <!-- <div class="products_bg">
+      <div class="products_container">
+        <div class="product">
+          <div class="hover">
+            <ul>
+              <li>product1
+              </li>
+              <p>$150,000</p>
+            </ul>
+          </div><img src="/img/product1-1.jpg" alt="첫번째이미지">
+        </div>
+        <div class="product">
+          <div class="hover">
+            <ul>
+              <li>product2
+              </li>
+              <p>$150,000</p>
+            </ul>
+          </div><img src="/img/product2.jpg" alt="두번째이미지">
+        </div>
+        <div class="product">
+          <div class="hover">
+            <ul>
+              <li>product3
+              </li>
+              <p>$150,000</p>
+            </ul>
+          </div>
+          <img src="/img/product3.jpg" alt="세번째이미지">
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="products_bg">
+      <div class="products_container">
+        <div class="product">            
+          <div style="position:relative">
+
+          <div class="hover_wrap">
+            <ul class="hover">
+              <li>product1
+              </li>
+              <p>$150,000</p>
+            </ul></div>
+          </div>
+          <img src="/img/product1-1.jpg" alt="첫번째이미지">
+        </div>
+        <div class="product">                 
+          <div style="position:relative">
+          <div style="position:relative">
+
+          <div class="hover_wrap">       
+
+            <ul class="hover">
+              <li>product2
+              </li>
+              <p>$150,000</p>
+            </ul></div>
+          </div><img src="/img/product2.jpg" alt="두번째이미지">
+        </div>
+        <div class="product">
+          <div style="position:relative">
+
+          <div class="hover_wrap">
+
+            <ul class="hover">
+              <li>product3
+              </li>
+              <p>$150,000</p>
+            </ul></div>
+          </div>
+          <img src="/img/product3.jpg" alt="세번째이미지">
+        </div>
+      </div>
+    </div>
+  </div> -->
+    
+    <!-- 7. Pseudo Dom- -->
+    <h1 class="ct mt-60 mb-5">5. Pseudo Dom연습</h1>
+    <div class="wrap-100">
+      <h2 class="ct">Pseudo Dom이란?</h2>
+      <p class="mt-15 ct mb-15">개발자도구에서 F1(또는 Settings 메뉴)를 누른 후 'Show user agent shadow DOM'을 설정하면 pseudo dom이 표시가 되는데, <br>여기서 pseudo dom이란 마크업은 하지 않았지만 나타나는(숨겨진 HTML) 요소들!</p>
+      <div class="border_box">
+        <h3>예시</h3>1. 
+        <input type="file" name="파일업로드" id="" class="mt-15">2. 
+        <input placeholder="안녕하세요">
+        <p class="mt-15">1. input type="file" HTML 1개를 입력하면 버튼이랑 글자 이렇게 2개의 HTML 요소가 생성되는 원리
+          <br>2. input placeholder="안녕하세요" HTML 1개를 입력하면 div 2개의 HTML요소(box, 글자)가 생성!
+          <span> 참고) 특정 브라우저에 스타일링 줄때</span>
+          -webkit- : 크롬, 오페라, 사파리, Edge<br>    
+          파이어폭스 : -moz-<br>
+          익스플로러11ver 이하 : -ms-
+        </p>
+      </div>
+      <div class="ct mt-60">
+        <h2 class="ct">input 타입 range & progress 스타일 커스텀하기</h2>
+        <h3 class="mb-10 mt-15">before</h3>
+        <input type="range"><progress class="ml-30"></progress>
+        <br>
+        <h3 class="mt-30 mb-10">after</h3>
+        <div class="flex_wrap">
+          <div>
+            <span class="i_vol material-symbols-outlined">volume_up</span>
+            <input type="range" class="volum">
+          </div>
+          
+          <div class="ml-30">
+            진행상황<br>
+            <progress value="0.6" class="progress_bar"></progress>
+          </div>
+        </div>
+    </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+ 
+  </div>
+   <!-- //3.위 컨테이너 div -->
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+/* 3. 서브메뉴 */
+/* .list-group{display: none !important;}
+.show{display: block;} */
+ul.list-group{
+  display: none;
+}
+ul.show{display: block;}
+
+
+
+/* 5-1. 로그인 모달창(fade 애니버전) */
+.black-bg {
+  width : 100%;
+  height : 100%;
+  position : fixed;
+  background : rgba(0,0,0,0.5);
+  z-index : 5;
+  padding: 30px;
+  visibility: hidden; /* display:none 대신에 이거써야 애니메 잘나옴 */
+  opacity: 0;
+  transition: all 1s; /* 모든 css속성이 변할때 서서히~ */
+} /* 여기까지 모달 시작애니 */
+.show-modal{
+  visibility: visible; /* visibility: hidden;을 썼으니까 적어줌(display:block이랑 같다고 봄) */
+  opacity: 1;
+
+}/* 여기까지 모달 끝애니 */
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+} 
+/* 그리고 JS에서 ('on')을 ('show-modal')로 변경 */

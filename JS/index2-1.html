@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>변수, 사칙연산 실력향상 과제</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  
+<h2>Q1. 변수를 만들어봅시다</h2>
+<p>내 나이와 출신지역을 자바스크립트 변수에 저장해봅시다. <br>
+
+  나이는 맨날 변하니 재할당가능한 변수,<br>
+  
+  출신지역은 바뀌지 않으니 재할당불가능한 변수에 저장해보십시오</p>
+
+  <div>
+    <h2>Q2. 왜 이 변수는 동작하지 않죠?</h2>
+
+ 
+    <img src="img/q2.png" alt="Q2문제사진">
+    <p>다음 코드를 실행했을 때 콘솔창에 무엇이 출력될까요? 
+
+    </p>
+  </div>
+ 
+  <div>
+    <h2>Q3. 이자율 계산하기 </h2>
+    <p>철수는 은행에 예금을 하러 갔는데 예금 금액에 따라 이율이 달라지는 것을 보고 크게 당황했습니다.
+
+    </p><p>첫 예금액이 5만원 미만이면 이율이 연 15퍼센트,
+      
+    </p><p>첫 예금액이 5만원 이상이면 이율이 연 20퍼센트라고 합니다.
+      
+    </p><p>그래서 민준이는
+      
+    </p><p> (1) 변수에 예금액을 넣으면
+      
+    </p><p>(2) 2년 후의 총 예금액을 자동으로 콘솔창에 출력해주는 기능을 자바스크립트로 만들려고하는데
+      
+    </p><p> 어떻게 코드를 짜면 될까요? </p>
+
+    <p>var 예금액 = 60000;<br>
+      var 미래예금액 = 0;<br><br>
+      
+      //여기에 코드짜보십시오  <br><br>
+       
+      console.log(미래예금액) </p>
+
+      <p><b>(동작예시)</b><br>
+
+        var 예금액이라는 변수에 60000을 집어넣으면 86400 이게 콘솔창에 출력되어야 합니다. (이자 20%가 2번 붙음)
+        <br>
+        var 예금액이라는 변수에 10000을 집어넣으면 13225 이게 콘솔창에 출력되어야 합니다. (이자 15%가 2번 붙음)
+        
+        <br><br>
+        
+        <b>(힌트) </b>
+        
+        자바스크립트에선 + - / * 연산자로 사칙연산이 가능합니다.</p></div>
+
+
+        <div><h2>Q4. 커피 리필을 이상하게 해주는 곳이 있습니다. 최대한 마실 수 있는 커피양을 계산해봅시다. </h2>
+        <p>방금 마신 커피의 3분의 2만큼 총 2번 리필해주는 카페가 있습니다.<br>
+
+          예를 들면 처음 커피를 90ml 주문하면 첫 리필은 60ml를 해주며, 그 다음 리필은 40ml를 해주는 카페입니다.
+          <br>
+          그럼 처음 주문한 커피 양에 따라서 최대한 마실 수 있는 커피를 콘솔창에 계산해주는 코드를 작성해봅시다. </p>
+        <p><b>(동작예시)</b><br>
+
+          var first에 360을 집어넣으면 위 코드를 실행했을 때 콘솔창에 760이 출력되어야합니다. (360 + 240 + 160)</p>
+        <p>var first = 360; <br>
+
+          //여기 어떤 코드가 들어가면 될까요? </p>
+        <p><b>(응용 2)</b><br>
+
+          커피리필 문제에서<br>
+          
+          커피리필을 무한으로 해준다면 처음 담아주는 커피가 360ml일 때 총 몇 ml의 커피를 마실 수 있을까요?
+          <br>
+          힌트 : 무한등비수열의 합 </p></div>
+<div>
+  <h2>Q5. 간단한 퀴즈 UI를 만들어봅시다.</h2>
+  <img src="img/q5.png" alt="5번 문제 사진">
+  <p>유저가 <input>(input태그에)에 답을 적고 제출버튼을 누를 수 있는 퀴즈 UI 입니다.
+    <br>
+    1. 유저가 답을 맞추면 alert('성공');
+    <br>
+    2. 유저가 답을 3번 찍어서 못맞추면 alert('멍청아') 를 띄워봅시다.
+    <br>
+    하단에 자바스크립트 작성하면 됩니다.
+    <br>
+    (위 문제의 답은 1335입니다)
+    
+     </p>
+</div>
+<div>
+  <h2>태조 이성계가 태어난 년도는?</h2>
+<input type="text" id="answer" placeholder="예: 2024">
+<button id="send-answer" value="click">제출</button>
+</div>
+
+
+
+<script>
+
+// Q1.
+var age = '31세';    // 나이는 맨날 변하니 재할당가능한 변수(var, let)
+const place = '서울';  // 출신지역은 바뀌지 않으니 재할당불가능한 변수(const)에 저장
+
+
+// Q2. 무엇이 출력될까요? 
+// A) kim / 0
+// console.log(name) 부분에선 'kim' 이 출력되고
+// console.log(id) 부분에선 0이 출력됩니다.
+
+// var name의 경우 함수 안에서 재선언 + 재할당 해버리고 출력해버렸으니 그냥 'kim' 잘 나오는데 
+// var id의 경우 함수 안에 있던 변수는 바깥으로 탈출하지 않습니다.
+// 그래서 함수 바깥에서 console.log(id) 하면 그냥 위에있던 var id = 0 이 출력됩니다.
+
+
+// Q3.
+var 예금액 = 60000;
+var 미래예금액 = 0;
+
+if(예금액 >= 50000 ) {
+                                    // **는 거듭제곱 연산자
+  미래예금액 = 예금액 * 1.2 ** 2;  // 첫 번째 20% 이자 추가, 두 번째 20% 이자 추가
+
+}else {    //else if(예금액 < 50000){ 이라고 굳이 안해도 됨.
+  미래예금액 = 예금액 * 1.15 ** 2
+};
+
+console.log('최종 받을 금액은 ' + 미래예금액 + '원 입니다.');
+
+
+
+// Q4. 최대한 마실 수 있는 커피양을 계산
+var first = 360;
+var total  = 0; //다 마신 양을 저장할 변수부터 만들고
+
+total  = first + first * 2/3 + first * 2/3 * 2/3;
+maxTotal = first / (1-2/3) // 무한등비수열의 합 공식 : a/(1-r)  a = 커피량 r = 2/3 
+
+console.log (first + 'ml를 처음에 마실경우 2번 리필한 커피양은 ' + total + 'ml입니다.');
+console.log (first + 'ml를 처음에 마실경우 무한 리필한 커피양은 ' + maxTotal + 'ml입니다.');
+
+// Q5. 이번과제중에 난이도 최상이였음...
+//getElementById 사용------------
+
+var attempts = 0;
+
+document.getElementById('send-answer').addEventListener('click', function(){
+  attempts++; // attempts += 1;
+  var userAnswer = document.getElementById('answer').value;   //입력 필드의 값을 가져옴
+  if(userAnswer == '1335') {
+  alert('성공');
+  }else if(attempts >= 3){ // 세번째 눌렀을때
+    alert('멍청이');
+    attempts = 0; 
+  }
+
+
+});
+
+
+
+//querySelector 사용------------
+
+var attempts = 0;
+
+document.querySelector('#send-answer').addEventListener('click', function(){
+  attempts++; // attempts += 1;
+  var userAnswer = document.querySelector('#answer').value;
+  if(userAnswer == '1335') {
+  alert('성공');
+  }else if(attempts >= 3){
+    alert('멍청이');
+    attempts = 0;  
+  }
+
+
+});
+
+
+
+//jQuery 사용------------
+
+// var birth = 1335; 를 한다면 '1335' 대신에 birth가 들어가면됨 (변수 선언하면 코딩한줄 길어짐)
+var attempts = 0;
+
+$('#send-answer').on('click', function(){
+  attempts++; // attempts += 1;
+  var userAnswer = $('#answer').val(); //입력 필드의 값을 ('#answer').value 대신 $('#answer').val()을 사용하여 가져옴
+  if(userAnswer == '1335') {
+    alert('성공');
+    //attempts = 0;
+  } else if(attempts >= 3){ //세번째 눌렀을때
+    alert('멍청이');
+    //attempts = 0;  // *시도횟수 초기화
+  }
+
+
+});
+// *시도횟수 초기화
+// 시도 횟수를 초기화하지 않으면, 다음과 같은 상황이 발생할 수 있습니다
+
+//사용자가 답을 맞춘 후에도 시도 횟수가 계속 증가합니다. 
+//이후 사용자가 다시 틀린 답을 세 번 이상 입력하면 "멍청이" 메시지가 표시됩니다. 
+//이 경우 사용자가 이미 성공했음에도 불구하고 불필요하게 실패 메시지를 받을 수 있습니다.
+// 사용자가 세 번 틀린 후 "멍청이" 메시지를 받고 나서도 시도 횟수가 계속 증가합니다. 
+//이후 사용자가 올바른 답을 입력했을 때 성공 메시지가 제대로 표시되지 않을 수 있습니다.
+// 따라서, 시도 횟수를 초기화하는 것이 사용자가 답을 맞추거나 실패 후에 다시 시도할 수 있도록 하는 올바른 방법입니다.
+// 그러나, 시도 횟수를 초기화하지 않고도 작동하도록 하고 싶다면 초기화 코드를 제거할 수 있습니다. 
+//이런 경우에는 사용자가 답을 맞추는 상황과 세 번 틀렸을 때만 신경 써야 합니다..........지피티가 그렇다는데....
+
+</script>
+
+</body>
+</html>
+

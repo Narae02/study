@@ -1,0 +1,45 @@
+@charset "UTF-8";
+div{box-sizing: border-box;}
+body{
+  padding: 0;
+  margin: 0;
+}
+
+.container{
+  max-width: 1200px;
+
+  background: rgb(255, 161, 30);
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.item_box{
+  max-width: 600px;
+  position: relative;
+}
+/* 애니메이션 시작스타일 */
+.item_box .item_border{
+  border: 0px solid #fff;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-out;
+}
+/* 애니메이션 끝스타일 */.item_box:hover .item_border{
+  border: 30px solid #fff;
+}
+.item_box img{
+  width: 100%;
+  display: block;
+}
+.text_box{
+  position: absolute;
+  z-index: 2;
+  top: 30px;
+  left: 50px;
+}
+h4,p{
+  color: #fff;
+}

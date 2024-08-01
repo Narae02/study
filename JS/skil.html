@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKILLS 포트폴리오</title>
+    <link rel="stylesheet" href="skil.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>개인 포트폴리오</h1>
+        </header>
+        <section class="skills">
+            <h2>기술 스킬</h2>
+            <div class="bubbles">
+                <div class="bubble" data-skill="HTML" data-percent="90" data-description="HTML5를 사용한 웹사이트 구조 설계.">HTML</div>
+                <div class="bubble" data-skill="CSS" data-percent="85" data-description="CSS3와 SASS를 사용한 스타일링 및 레이아웃 디자인.">CSS</div>
+                <div class="bubble" data-skill="JavaScript" data-percent="80" data-description="ES6+ 표준의 JavaScript로 인터랙티브 웹 개발.">JavaScript</div>
+                <div class="bubble" data-skill="React" data-percent="75" data-description="React 라이브러리를 사용한 컴포넌트 기반 개발.">React</div>
+                <div class="bubble" data-skill="Photoshop" data-percent="70" data-description="Photoshop을 사용한 그래픽 디자인 및 편집.">Photoshop</div>
+                <div class="bubble" data-skill="Illustrator" data-percent="65" data-description="Illustrator를 사용한 벡터 그래픽 디자인.">Illustrator</div>
+                <div class="bubble" data-skill="Figma" data-percent="60" data-description="Figma를 사용한 UI/UX 디자인 및 프로토타이핑.">Figma</div>
+                <div class="bubble" data-skill="Bootstrap" data-percent="75" data-description="Bootstrap 프레임워크를 사용한 반응형 웹 디자인.">Bootstrap</div>
+            </div>
+        </section>
+        <section class="description">
+            <h2>스킬 설명</h2>
+            <p id="skill-description">물방울에 마우스를 올리면 스킬 설명이 여기에 표시됩니다.</p>
+        </section>
+        <section class="experience">
+            <h2>경력 사항</h2>
+            <p>유베이스 2021.03 ~ 2023.12 근무</p>
+        </section>
+    </div>
+    <!-- <script src="script.js"></script> -->
+     <script>
+      const bubbles = document.querySelectorAll('.bubble');
+const description = document.getElementById('skill-description');
+
+bubbles.forEach(bubble => {
+    const percent = bubble.getAttribute('data-percent');
+    const size = 60 + (percent - 50) * 1.5; // 기본 크기(60px)에서 퍼센트에 따른 크기 조정
+    const randomAnimationDelay = Math.random() * 2;
+    const randomAnimationDuration = 3 + Math.random() * 2;
+
+    bubble.style.animationDelay = `${randomAnimationDelay}s`;
+    bubble.style.animationDuration = `${randomAnimationDuration}s`;
+
+    // bubble.innerHTML = `<span>${percent}%</span>${bubble.getAttribute('data-skill')}`;
+    // hover시 주황색 컬러
+    bubble.innerHTML = `${bubble.getAttribute('data-skill')}<span>${percent}%</span>`;
+
+
+    bubble.addEventListener('mouseover', () => {
+        description.textContent = bubble.getAttribute('data-description');
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+    });
+
+    bubble.addEventListener('mouseout', () => {
+        description.textContent = '물방울에 마우스를 올리면 스킬 설명이 여기에 표시됩니다.';
+        bubble.style.width = '60px';
+        bubble.style.height = '60px';
+    });
+});
+
+     </script>
+</body>
+</html>

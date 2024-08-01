@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+body{
+  width:400px;
+  height: 350px;
+  display: block;
+  margin:0 auto;
+  background-color: rgb(255, 97, 97);
+}
+  
+img{
+  margin: 30px auto;
+  display: block; 
+  width: 100px;
+}
+h1,h4,p{
+  text-align: center;
+}
+p{
+  border: 3px solid rgb(255, 255, 255);
+  padding: 30px;
+  width: 300px;
+  line-height: 1.5;
+  margin: 0 auto;
+  box-shadow: 8px 11px 19px;
+}

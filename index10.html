@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>태조 이성계가 태어난 년도는? 챗버전</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+  var correctAnswer = '1335';
+  var attempts = 0;
+
+  document.getElementById('send-answer').addEventListener('click', function() {
+    var userAnswer = document.getElementById('answer').value;
+    attempts++;
+    
+    if (userAnswer === correctAnswer) {
+      alert('성공');
+      attempts = 0; // Reset attempts on success
+    } else if (attempts >= 3) {
+      alert('멍청아');
+      attempts = 0; // Reset attempts after 3 failed attempts
+    }
+  });
+</script>
+
+
+
+
+
+<p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+
+  var count = 0;
+
+  document.querySelector('#send-answer').addEventListener('click', function(){
+    count += 1;
+    var 유저답안 = document.querySelector('#answer').value;
+    if (유저답안 == '1335') {
+      alert('성공')
+    } else if (count >= 3 && 유저답안 != '1335'){
+      alert('멍청아')
+    }
+  });
+</script>
+
+
+
+
+</body>
+</html>
